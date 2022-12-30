@@ -37,7 +37,7 @@ async function handleCommand(client, interaction) {
                     interaction.followUp({embeds: [embed]});
                 } else {
                     console.error(err);
-                    log.error('An error occured replying to an error');
+                    log.error('An error occurred replying to an error');
                 }
             });
     }

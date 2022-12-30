@@ -61,14 +61,14 @@ export const run = async (client, interaction, level) => {
                 const embed = new EmbedBuilder()
                     .setColor('#0099ff')
                     .setTitle('Success')
-                    .setDescription('Sucessfully updated setting!')
+                    .setDescription('Successfully updated setting!')
                     .setTimestamp();
                 
                 interaction.editReply({embeds: [embed], components: []});
             }
         })
         .catch(() => {
-            log.debug('No interactions colected');
+            log.debug('No interactions collected');
             
             const embed = new EmbedBuilder()
                 .setColor('#0099ff')

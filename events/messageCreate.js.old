@@ -71,7 +71,7 @@ export const run = async (client, message) => {
         message.reply({embeds: [embed]})
             .catch(e => {
                 console.error(e);
-                log.error('An error occured replying to an error');
+                log.error('An error occurred replying to an error');
             });
     }
 };

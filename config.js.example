@@ -28,13 +28,6 @@ const config = {
             description: 'The role used for administrators',
             type: 'role'
         },
-        {
-            name: 'prefix',
-            value: '+',
-            prettyName: 'Prefix',
-            description: 'The prefix used for legacy text commands',
-            type: 'string'
-        }
     ],
 
     permLevels: [

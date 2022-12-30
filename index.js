@@ -10,7 +10,6 @@ import log from './log.js';
 const client = new Client({ intents, partials });
 const slash = new Collection();
 const aliases = new Collection();
-const commands = new Collection();
 
 const levelCache = {};
 for(const level of permLevels) {
@@ -20,21 +19,10 @@ for(const level of permLevels) {
 client.container = {
     slash,
     aliases,
-    commands,
     levelCache
 };
 
 async function init() {
-    const commands = readdirSync('./commands/').filter(file => file.endsWith('.js'));
-    for(const file of commands) {
-        const props = await import(`./commands/${file}`);
-        log.info(`Loading Command: ${props.help.name}`);
-        client.container.commands.set(props.help.name, props);
-        props.conf.aliases.forEach(alias => {
-            client.container.aliases.set(alias, props.help.name);
-        });
-    }
-
     const slashes = readdirSync('./slash/').filter(file => file.endsWith('.js'));
     for(const file of slashes) {
         const command = await import(`./slash/${file}`);
